@@ -15,6 +15,13 @@ function getTime (input) {
   }
 }
 
+function getSeconds () {
+  var time = new Date()
+  return time.getSeconds()
+}
+function getPercentage (x) {
+  return (x * 100) / 60
+}
 function addCeroToSingleDigit (input) {
   if (input.toString().length === 1) return '0' + input
   return input
@@ -29,6 +36,8 @@ function renderTime () {
   document.querySelector('.circle').style.boxShadow = '5px 5px 50px' + color
   document.body.style.color = color
   document.body.style.background = 'radial-gradient(at top left, ' + 'white' + ',' + color + ')'
+  document.querySelector('.box').style.height = getPercentage(getSeconds()) + '%'
+
   if (isHex) {
     clock.textContent = getTime('hex')
   } else {
