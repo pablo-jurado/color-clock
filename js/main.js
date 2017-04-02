@@ -6,10 +6,12 @@ function getTime (input) {
   var hour = addCeroToSingleDigit(time.getHours())
   var min = addCeroToSingleDigit(time.getMinutes())
   var sec = addCeroToSingleDigit(time.getSeconds())
-  if (input !== 'hex') {
-    return hour + ':' + min + ':' + sec
-  } else {
+  if (input === 'color') {
+    return '#' + hour + min + sec
+  } else if (input === 'hex') {
     return toHex(hour) + ':' + toHex(min) + ':' + toHex(sec)
+  } else {
+    return hour + ':' + min + ':' + sec
   }
 }
 
@@ -22,6 +24,17 @@ function toHex (num) {
   return num.toString(16)
 }
 
+function renderTime () {
+  document.body.style.color = getTime('color')
+  document.body.style.background = 'radial-gradient(at top left, ' + 'white' +
+  ',' + getTime('color') + ')'
+  if (isHex) {
+    clock.textContent = getTime('hex')
+  } else {
+    clock.textContent = getTime()
+  }
+}
+
 clock.addEventListener('mouseover', function () {
   isHex = true
   renderTime()
@@ -31,14 +44,6 @@ clock.addEventListener('mouseout', function () {
   isHex = false
   renderTime()
 })
-
-function renderTime () {
-  if (isHex) {
-    clock.textContent = getTime('hex')
-  } else {
-    clock.textContent = getTime()
-  }
-}
 
 renderTime()
 

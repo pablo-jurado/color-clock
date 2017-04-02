@@ -1,8 +1,7 @@
 body {
   position: relative;
-  color: white;
   height: 100vh;
-  background: radial-gradient(at top left, lightgreen, darkgreen);
+  /*background: radial-gradient(at top left, lightgreen, darkgreen);*/
   /*background: radial-gradient(lightgreen, darkgreen);*/
 }
 
