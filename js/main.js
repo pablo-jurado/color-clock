@@ -25,9 +25,10 @@ function toHex (num) {
 }
 
 function renderTime () {
-  document.body.style.color = getTime('color')
-  document.body.style.background = 'radial-gradient(at top left, ' + 'white' +
-  ',' + getTime('color') + ')'
+  var color = getTime('color')
+  document.querySelector('.circle').style.boxShadow = '5px 5px 50px' + color
+  document.body.style.color = color
+  document.body.style.background = 'radial-gradient(at top left, ' + 'white' + ',' + color + ')'
   if (isHex) {
     clock.textContent = getTime('hex')
   } else {

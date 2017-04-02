@@ -8,12 +8,22 @@ body {
   height: 100vh;
 }
 
-
 .clock {
   font-family: pixel;
   font-size: 5em;
   padding: 10px;
   display: inline-block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.circle {
+  border: solid 1em white;
+  border-radius: 50%;
+  height: 30em;
+  width: 30em;
   position: absolute;
   top: 50%;
   left: 50%;
